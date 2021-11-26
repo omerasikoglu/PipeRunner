@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+namespace PipeRunner.PlayerInput
 {
-    // Start is called before the first frame update
-    void Start()
+    public class InputManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private InputManagerData _inputManagerData;
+        [Space(20)]
+        [SerializeField] private KeyCode _tapButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        private void Update()
+        {
+            _inputManagerData.isTap = Input.GetKeyDown(_tapButton);
+        }
+    } 
 }

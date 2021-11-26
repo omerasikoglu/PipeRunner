@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManagerData : MonoBehaviour
+namespace PipeRunner.PlayerInput
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Scriptable Objects/Input/Data")]
+    public class InputManagerData : ScriptableObject
     {
-        
+        public bool isTap; //ekrana dokundu mu
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

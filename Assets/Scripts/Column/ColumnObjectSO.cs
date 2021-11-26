@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColumnObjectSO : MonoBehaviour
+namespace PipeRunner.Column
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Scriptable Objects/Column/ColumnObject", order = -1)]
+    public class ColumnObjectSO : ScriptableObject
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public float radius;
     }
 }

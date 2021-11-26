@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColumnObjectListSO : MonoBehaviour
+namespace PipeRunner.Column
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Scriptable Objects/Column/ColumnObjectList", order = -2)]
+
+    public class ColumnObjectListSO : ScriptableObject
     {
-        
+        public List<ColumnObjectSO> list;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

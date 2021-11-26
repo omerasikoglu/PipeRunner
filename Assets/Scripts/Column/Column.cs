@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Column : MonoBehaviour
+namespace PipeRunner.Column
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Column : MonoBehaviour
     {
-        
+        [SerializeField] private ColumnSettings _columnSettings;    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
