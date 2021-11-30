@@ -10,12 +10,35 @@ namespace PipeRunner.Player
     {
         [SerializeField] private InputManagerData _inputManagerData;
 
-        private const float _movementSpeed = 10f;
+        private Rigidbody _rigidbody;
 
+        private const float _movementSpeed = 1f;
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
 
         private void Update()
         {
-            Move();
+            //Move();
+        }
+        private void FixedUpdate()
+        {
+            MoveRigidbody();
+        }
+        private void OnTriggerEnter(Collider collision)
+        {
+            Obstacle obstacle = collision.GetComponent<Obstacle>();
+
+            if (obstacle != null)
+            {
+                //Destroy(gameObject);
+            }
+        }
+        private void MoveRigidbody()
+        {
+            _rigidbody.MovePosition(transform.position + Vector3.up * Time.deltaTime * _movementSpeed);
         }
 
         private void Move()
@@ -25,5 +48,5 @@ namespace PipeRunner.Player
                 transform.Translate(Vector3.up * Time.deltaTime);
             }
         }
-    } 
+    }
 }
