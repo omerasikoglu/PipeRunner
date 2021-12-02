@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PipeRunner.Test
+namespace PipeRunner
 {
-    public class Explosion : MonoBehaviour
+    public class Corn : MonoBehaviour
     {
         public float cubeSize = 0.2f;
         public int cubesInRow = 5;
@@ -16,30 +16,23 @@ namespace PipeRunner.Test
         public float explosionRadius = 4f;
         public float explosionUpward = 0.4f;
 
-        [SerializeField] private bool isRotating;
-        private float _rotatePos;
-        private const float _rotateSpeed = .2f;
+        private float _cornScale = 1f;
+
+        public Corn(float cornScale)
+        {
+            _cornScale = cornScale;
+        }
 
         // Use this for initialization
         private void Start()
         {
+            //adjust local scale
+            //transform.localScale = new Vector3(_cornScale * .5f , .8f , _cornScale * .5f);
+
             //calculate pivot distance
             cubesPivotDistance = cubeSize * cubesInRow / 2;
             //use this value to create pivot vector)
             cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
-        }
-        private void Update()
-        {
-            RotateCheck();
-        }
-
-        private void RotateCheck()
-        {
-            if (isRotating)
-            {
-                _rotatePos += _rotateSpeed * Time.deltaTime;
-                transform.Rotate(0, _rotatePos, 0);
-            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -47,6 +40,7 @@ namespace PipeRunner.Test
             if (other.gameObject.name == "Player")
             {
                 Explode();
+                Destroy(gameObject);
             }
         }
 

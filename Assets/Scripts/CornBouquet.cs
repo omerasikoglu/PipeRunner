@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PipeRunner.Corn
+namespace PipeRunner
 {
     public class CornBouquet : MonoBehaviour
     {

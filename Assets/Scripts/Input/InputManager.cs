@@ -12,7 +12,7 @@ namespace PipeRunner.PlayerInput
 
         private void Update()
         {
-            _inputManagerData.isTap = Input.GetKeyDown(_tapButton);
+            _inputManagerData.isTap = Input.GetKey(_tapButton);
         }
     } 
 }
